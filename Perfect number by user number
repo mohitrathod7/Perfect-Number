@@ -1,0 +1,16 @@
+# perfect number
+#Divisors of 28: 1,2,4,7,14 (not including 28)
+#Sum of divisors : 1 + 2 + 4 + 7 + 14 = 28
+
+def perfect_num_by_user():
+    num = int(input("Enter a number to find is it perfect number or not : "))
+    sum = 0
+    for x in range(1, num):
+        if num%x == 0:
+            sum += x
+    if sum == num :
+        print(num, "is a Perfect number")
+    else:
+        print(num, "is not a Perfect number")
+        
+perfect_num_by_user()
