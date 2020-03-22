@@ -1,0 +1,36 @@
+# perfect number
+#Divisors of 28 : 1,2,4,7,14 (not including 28)
+#Sum of divisors : 1 + 2 + 4 + 7 + 14 = 28
+
+def perfect_num_by_user_limit():
+    num_string = ""
+    start_limit = int(input("Enter first number from where you want to find : "))
+    end_limit = int(input("Enter last number to till you want to find : "))
+    cond = True
+    while cond == True:
+        num_list = []
+        for num in range(start_limit, end_limit+1):
+            sum = 0
+            for x in range(1, num):
+                if num%x == 0:
+                    sum += x
+            if sum == num :
+                num_list.append(num)
+        if num == end_limit:
+            cond = False
+            
+    if len(num_list) == 0:
+        print("There are no Perfect Numbers between", start_limit, "and", end_limit)
+    elif len(num_list) == 1:
+        print("Perfect numbers between", start_limit, "and", end_limit, "is", num_list[0])
+    else:
+        for i in num_list:
+            if num_list.index(i) == len(num_list)-1:
+                num_string += " and " + str(i)
+            elif num_list.index(i) == len(num_list)-2:
+                num_string += str(i)
+            else:
+                num_string += str(i) + ","
+        print("Perfect numbers between", start_limit, "and", end_limit, "are", num_string)
+        
+perfect_num_by_user_limit()
